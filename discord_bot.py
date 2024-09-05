@@ -40,7 +40,7 @@ class DynamicView(View):
                 fixed_video_list = tw_video.ffmpeg_fix(downloaded_video)
 
                 with open(fixed_video_list[0], 'rb') as f:
-                    vid = discord.File(f)
+                    vid = discord.File(f, filename = fixed_video_list[0])
                 try:
                     await interaction.followup.send(file=vid)
                 except Exception as e:
@@ -56,7 +56,7 @@ class DynamicView(View):
                 downloaded_item_list = ig_story.download([video])
 
                 with open(downloaded_item_list[0], 'rb') as f:
-                    vid = discord.File(f)
+                    vid = discord.File(f, filename = downloaded_item_list[0])
                 try:
                     await interaction.followup.send(file=vid)
                 except Exception as e:
@@ -433,7 +433,7 @@ async def send_video_to_discord(video_list, message):
             with open(video_name, 'rb') as video_or_pic:
                 # in this case delete the video from your disk, but you can keep it
                 #os.system(f'rm {video_name}') 
-                vid = discord.File(video_or_pic)
+                vid = discord.File(video_or_pic, filename = video_name)
         except Exception as e:
             return False
         
