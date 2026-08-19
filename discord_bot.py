@@ -188,7 +188,7 @@ async def check_site(url: str) -> tuple[str, bool]:
     if 'twitter.com' in url or 'x.com' in url:
         return 'Twitter'
     #tiktok
-    if 'tiktok.com' in url:
+    if 'tiktok.com' in url or 'tiktokv.com' in url:
         return 'TikTok'
     #reddit
     if 'reddit.com' in url:
